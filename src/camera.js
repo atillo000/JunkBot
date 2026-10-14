@@ -1,0 +1,2 @@
+import * as THREE from 'three';
+export function updateCamera(camera,player,dt){const p=player.obj.position,target=p.clone().add(new THREE.Vector3(0,1.9,0));const r=7.5,h=3.1+player.cameraPitch*4;const desired=p.clone().add(new THREE.Vector3(Math.sin(player.cameraYaw)*r,h,Math.cos(player.cameraYaw)*r));desired.y=Math.max(1.5,desired.y);camera.position.lerp(desired,1-Math.exp(-dt*7));camera.lookAt(target);}
